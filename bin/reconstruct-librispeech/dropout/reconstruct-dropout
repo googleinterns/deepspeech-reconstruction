@@ -1,0 +1,51 @@
+PREFIX=reconstruct-librispeech-sample-frame-cosine-dropout-$DROPOUT
+GRAD_OUTPUT_DIR=outputs/librispeech-dropout-$DROPOUT/$1
+OUTPUT_DIR=outputs/$PREFIX/$1
+
+if [ -f $GRAD_OUTPUT_DIR/grads.pkl ]
+then
+  echo "Gradients already exported."
+else
+  python export_gradients.py \
+    --train_files samples/librispeech/single/$1.csv \
+    --alphabet_config_path data/alphabet.txt \
+    --scorer '' \
+    --model_learning_rate 1 \
+    %--scorer $HOME/repos/DeepSpeech/data/lm/kenlm.scorer \
+    --output_path $GRAD_OUTPUT_DIR \
+    --load_checkpoint_dir checkpoints --load_train last --load_cudnn \
+    --train_batch_size 1 \
+    --dropout_rate $DROPOUT \
+    --log_level 3
+fi
+
+python reconstruct.py \
+    --train_files samples/librispeech/single/$1.csv \
+    --input_path $GRAD_OUTPUT_DIR \
+    --alphabet_config_path data/alphabet.txt \
+    --scorer '' \
+    %--checkpoint_dir $HOME/pretrained_models/deepspeech-0.7.1-checkpoint --load_train last --load_cudnn \
+    --load_checkpoint_dir checkpoints --load_train last \
+    --summary_dir logs/reconstruct-librispeech-$1 --summary_frames \
+    --train_batch_size 1 --checkpoint_iterations 1000 \
+    --dropout_rate 0 \
+    --random_seed 1 \
+    --reconstructed_pos all \
+    --optimizer sgd --learning_rate 1 --force_initialize_learning_rate true \
+    --reduce_lr_on_plateau --plateau_epochs 2500 --sample_plateau_epochs 25 --plateau_reduction 0.5 --min_step 0.25 --es_min_delta 0 --es_min_delta_percent 0.05 \
+    --exit_if_learning_rate_unchanged \
+    --ema 0 \
+    --num_iterations 50000 \
+    --reconstruct_input mfccs \
+    --init_x uniform \
+    --init_y perfect \
+    --output_path $OUTPUT_DIR \
+    --gradient_distance cosine \
+    --use_gradient_sign \
+    --optimized_layers layer_6/bias,layer_6/weights \
+    --grad_estimation_sample_unit_vectors --grad_estimation_sample_size 127 --grad_estimation_batch_size 128 \
+    --grad_estimation_num_radii 1 \
+    --unit_vectors_keep_top_k 0 \
+    --use_top_gradients_ratio 1 \
+    --gradients_dropout 0.0 \
+    --grad_estimation_sample_by_frame --grad_estimation_sample_num_frames 1

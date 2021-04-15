@@ -1,0 +1,10 @@
+gsutil rsync -r -u gs://research-brain-speech-reconstruction-xgcp/output/librispeech outputs/librispeech
+CUDA_VISIBLE_DEVICES=-1 python src/deep_speaker/test_reconstruction.py --all_speakers
+
+gsutil -m rsync -r -u gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine-noise-1e-4 outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-4
+
+CUDA_VISIBLE_DEVICES=0 python src/deep_speaker/test_reconstruction.py --all_speakers --path reconstruct-librispeech-sample-frame-cosine-noise-1e-2
+CUDA_VISIBLE_DEVICES=1 python src/deep_speaker/test_reconstruction.py --all_speakers --path reconstruct-librispeech-sample-frame-cosine-noise-1e-3
+
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-4 gs://research-brain-speech-reconstruction-xgcp/output/econstruct-librispeech-sample-frame-cosine-noise-1e-4
+gsutil rsync -r -u -x ".*_grads.pkl" outputs/librispeech gs://research-brain-speech-reconstruction-xgcp/output/librispeech

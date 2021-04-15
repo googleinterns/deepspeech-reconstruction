@@ -1,0 +1,17 @@
+./DeepSpeech.py \
+  --train_files $HOME/data/LibriSpeech/librivox-train-clean-360.csv,$HOME/data/LibriSpeech/librivox-train-clean-100.csv,$HOME/data/LibriSpeech/librivox-train-other-500.csv \
+  %--train_files $HOME/data/LibriSpeech/librivox-train-clean-360.csv,$HOME/data/LibriSpeech/librivox-train-clean-100.csv \
+  --dev_files $HOME/data/LibriSpeech/librivox-dev-clean.csv,$HOME/data/LibriSpeech/librivox-dev-other.csv \
+  %--test_files $HOME/data/LibriSpeech/librivox-test-clean.csv,$HOME/data/LibriSpeech/librivox-test-other.csv \
+  --test_files $HOME/data/LibriSpeech/librivox-test-clean.csv \
+  --scorer '' \
+  --train_batch_size 64 \
+  --dev_batch_size 64 \
+  --test_batch_size 64 \
+  --optimizer adam \
+  --learning_rate 0.0001 \
+  --epochs 100 \
+  --dropout_rate 0.30 \
+  --plateau_epochs 5 --reduce_lr_on_plateau \
+  --augmentation_pitch_and_tempo_scaling \
+  --checkpoint_dir /home/trungvd/.local/share/deepspeech/checkpoints-clean-aug-2

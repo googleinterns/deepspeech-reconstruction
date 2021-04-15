@@ -1,0 +1,5 @@
+python -m src.deepspeech_training.evaluate \
+  --test_files $HOME/data/LibriSpeech/librivox-test-clean.csv \
+  --scorer $HOME/repos/DeepSpeech/data/lm/kenlm.scorer \
+  --test_batch_size 64 --load_evaluate best \
+  --checkpoint_dir $1

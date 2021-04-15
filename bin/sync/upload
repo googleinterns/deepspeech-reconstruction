@@ -1,0 +1,25 @@
+gsutil rsync -r -u -x ".*_grads.pkl" outputs/librispeech gs://research-brain-speech-reconstruction-xgcp/output/$1
+gsutil rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame
+gsutil -m rsync -r samples/librispeech/batch-16 gs://research-brain-speech-reconstruction-xgcp/input/librispeech/batch-16
+
+gsutil -m rsync -r gs://research-brain-speech-reconstruction-xgcp/scripts/librispeech src/scripts/librispeech
+gsutil -m rsync -r src/scripts/librispeech gs://research-brain-speech-reconstruction-xgcp/scripts/librispeech
+gsutil -m rsync -r -u -x ".*train2.*" ~/.local/share/deepspeech/checkpoints-clean-dropout-0.1-2 gs://research-brain-speech-reconstruction-xgcp/models/deepspeech/checkpoints-clean-dropout-0.1-2
+
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-2 gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine-noise-1e-2
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-3 gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine-noise-1e-3
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-3-longer gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine-noise-1e-3-longer
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-4 gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine-noise-1e-4
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine
+
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-batch-2-frame gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-batch-2-frame
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-batch-4-frame gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-batch-4-frame
+
+gsutil -m rsync -r ~/.local/share/deepspeech/checkpoints-clean-batch-8 gs://research-brain-speech-reconstruction-xgcp/models/deepspeech/checkpoints-dp-noise-1e-3
+gsutil -m rsync -r ~/.local/share/deepspeech/checkpoints-noise-1e-2 gs://research-brain-speech-reconstruction-xgcp/models/deepspeech/checkpoints-dp-noise-1e-2
+gsutil -m rsync -r ~/.local/share/deepspeech/checkpoints-noise-0 gs://research-brain-speech-reconstruction-xgcp/models/deepspeech/checkpoints-dp-noise-0
+
+gsutil -m rsync -r ~/.local/share/deepspeech/checkpoints-dp-noise-1e-3-real gs://research-brain-speech-reconstruction-xgcp/models/deepspeech/checkpoints-dp-noise-1e-3-real
+gsutil -m rsync -r ~/.local/share/deepspeech/checkpoints-dp-noise-1e-2-real gs://research-brain-speech-reconstruction-xgcp/models/deepspeech/checkpoints-dp-noise-1e-2-real
+
+gsutil -m rsync -r ~/.local/share/deepspeech/checkpoints-dp-noise-1e-4-bs-16 gs://research-brain-speech-reconstruction-xgcp/models/deepspeech/checkpoints-dp-noise-1e-4-bs-16

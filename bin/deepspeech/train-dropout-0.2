@@ -1,0 +1,16 @@
+./DeepSpeech.py \
+  --train_files $HOME/data/LibriSpeech/librivox-train-clean-360.csv,$HOME/data/LibriSpeech/librivox-train-clean-100.csv,$HOME/data/LibriSpeech/librivox-train-other-500.csv \
+  %--train_files $HOME/data/LibriSpeech/librivox-train-clean-360.csv,$HOME/data/LibriSpeech/librivox-train-clean-100.csv \
+  --dev_files $HOME/data/LibriSpeech/librivox-dev-clean.csv,$HOME/data/LibriSpeech/librivox-dev-other.csv \
+  %--test_files $HOME/data/LibriSpeech/librivox-test-clean.csv,$HOME/data/LibriSpeech/librivox-test-other.csv \
+  --test_files $HOME/data/LibriSpeech/librivox-test-clean.csv \
+  --scorer '' \
+  --train_batch_size 64 \
+  --dev_batch_size 64 \
+  --test_batch_size 64 \
+  --optimizer adam \
+  --learning_rate 0.0001 \
+  --epochs 100 \
+  --dropout_rate 0.20 \
+  --plateau_epochs 10 --reduce_lr_on_plateau \
+  --checkpoint_dir /home/trungvd/.local/share/deepspeech/checkpoints-clean-dropout-0.2

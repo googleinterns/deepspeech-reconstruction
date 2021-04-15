@@ -1,0 +1,42 @@
+# ./bin/sync/eval-batch-fair-and-upload outputs/reconstruct-librispeech-batch-2-frame 2
+# ./bin/sync/eval-batch-fair-and-upload outputs/reconstruct-librispeech-batch-2-dropout-0.1 2
+# ./bin/sync/eval-batch-fair-and-upload outputs/reconstruct-librispeech-batch-4-frame 4
+# ./bin/sync/eval-batch-fair-and-upload outputs/reconstruct-librispeech-batch-8-frame 8
+# ./bin/sync/eval-batch-fair-and-upload outputs/reconstruct-librispeech-batch-8-frame-longer 8
+# ./bin/sync/eval-batch-fair-and-upload outputs/reconstruct-librispeech-batch-16-frame 16
+# ./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-dropout-0.05
+
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-dropout-0.1
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-dropout-0.2
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-dropout-0.3
+
+# ./bin/sync/eval-batch-fair-and-upload outputs/reconstruct-librispeech-batch-25-long-longer 25
+# ./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-3-longer
+# ./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-longer
+
+# ./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-multi-step-2-lr-1e-4-ver2
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-multi-step-2-lr-1e-4-ver3
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-multi-step-2-lr-1e-4-ver2-dropout-0.1
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-multi-step-8-lr-1e-4-ver2
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-4-ver2
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-noise-5e-4-ver2
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-sample-frame-cosine-noise-1e-3-ver2
+
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.01
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.02
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.03
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.04
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.05
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.06
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.07
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.08
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-20-utt-dropout-0.09
+
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-transcript-1
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-transcript-2
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-transcript-3
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-transcript-4
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-inp-length-add-1
+./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-inp-length-minus-1
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-inp-length-double
+#./bin/sync/eval-fair-and-upload outputs/reconstruct-librispeech-no-inp-length-half

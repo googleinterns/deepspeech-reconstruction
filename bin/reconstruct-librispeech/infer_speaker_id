@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python src/deep_speaker/test_reconstruction.py --all_speakers --path

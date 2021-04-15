@@ -1,0 +1,5 @@
+python src/deep_speaker/test_reconstruction.py --all_speakers --path $1 --tag=fair1
+python src/deep_speaker/test_reconstruction.py --all_speakers --path $1 --tag=fair2
+python src/deep_speaker/test_reconstruction.py --all_speakers --path $1 --tag=fair3
+python src/deep_speaker/test_reconstruction.py --all_speakers --path $1 --tag=fair4
+python src/deep_speaker/test_reconstruction.py --all_speakers --path $1 --tag=fair5

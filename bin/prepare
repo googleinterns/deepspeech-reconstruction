@@ -1,0 +1,14 @@
+export DEEP_SPEAKER_WORKING_DIR="./deepspeaker"
+
+echo "> Downloading Librispeech"
+cd src/deep_speaker
+if [ -f "$WORKING_DIR/LibriSpeech" ]; then
+  WORKING_DIR=$DEEP_SPEAKER_WORKING_DIR ./deep-speaker download_librispeech
+  WORKING_DIR=$DEEP_SPEAKER_WORKING_DIR ./deep-speaker build_mfcc
+fi
+printf "Done.\n\n"
+
+echo "> Preparing dataset"
+WORKING_DIR=$DEEP_SPEAKER_WORKING_DIR CUDA_VISIBLE_DEVICES=-1 python ./export_dataset.py
+cd ../..
+python src/scripts/librispeech/sample.py --num_samples 800 --max_sec 4 --interval 0.5 --output samples/librispeech/samples_below_4s_bucket_500_all.txt

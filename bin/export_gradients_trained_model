@@ -1,0 +1,8 @@
+python export_gradients.py \
+    --train_files samples/trained-1-batch-2.csv \
+    --alphabet_config_path data/alphabet.txt \
+    --scorer '' \
+    %--scorer $HOME/repos/DeepSpeech/data/lm/kenlm.scorer \
+    --load_checkpoint_dir checkpoints/deepspeech-0.7.1-checkpoint --load_train last --load_cudnn \
+    --train_batch_size 1 \
+    --dropout_rate 0

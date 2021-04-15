@@ -1,0 +1,12 @@
+*.egg-info
+__pycache__
+.ipynb_checkpoints
+repos
+.vscode
+.idea
+checkpoints
+outputs
+pretrained_models
+logs
+src/notebooks
+repos

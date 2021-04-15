@@ -1,0 +1,4 @@
+gsutil rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame
+gsutil rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine
+gsutil rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine-noise-0.01 gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine-noise-0.01
+gsutil rsync -r -u -x ".*_grads.pkl" outputs/reconstruct-librispeech-sample-frame-cosine-noise-0.001 gs://research-brain-speech-reconstruction-xgcp/output/reconstruct-librispeech-sample-frame-cosine-noise-0.001

@@ -1,0 +1,50 @@
+CSV_PATH=samples/speech_commands/dog.csv
+OUTPUT_PATH=outputs/examples/multi-step
+NUM_STEPS=2
+rm -rf logs/reconstruct-test
+
+if [[ -f ${OUTPUT_PATH}/grads.pkl ]]
+then
+  echo "Gradients already exported."
+else
+  python export_gradients.py \
+    --train_files ${CSV_PATH} \
+    --alphabet_config_path data/alphabet.txt \
+    --scorer '' \
+    --output_path ${OUTPUT_PATH} \
+    --load_checkpoint_dir checkpoints --load_train last \
+    --train_batch_size 1 \
+    --dropout_rate 0 \
+    --learning_rate 0 --model_learning_rate 0.001 \
+    --num_steps ${NUM_STEPS}
+fi
+
+python reconstruct.py \
+    --train_files ${CSV_PATH} \
+    --input_path ${OUTPUT_PATH} \
+    --alphabet_config_path data/alphabet.txt \
+    --scorer '' \
+    --load_checkpoint_dir checkpoints --load_train last \
+    --summary_dir logs/reconstruct-multi-step \
+    --train_batch_size 1 --checkpoint_iterations 1000 \
+    --dropout_rate 0 \
+    --random_seed 1 \
+    --reconstructed_pos all \
+    --optimizer sgd --learning_rate 0 --model_learning_rate 0.001 --force_initialize_learning_rate true \
+    --reduce_lr_on_num_unit_vectors_applied_reduced --plateau_epochs 1000 --sample_plateau_epochs 25 --plateau_reduction 0.5 --min_step 0.0005 --es_min_delta 0 \
+    --ema 0 \
+    --num_iterations 1000000 --num_steps ${NUM_STEPS} \
+    --reconstruct_input mfccs \
+    --init_x perfect \
+    --init_y perfect \
+    --output_path ${OUTPUT_PATH} \
+    --gradient_distance l2 \
+    --use_gradient_sign \
+    --optimized_layers layer_6/bias,layer_6/weights \
+    --grad_estimation_sample_unit_vectors --grad_estimation_sample_size 1 --grad_estimation_batch_size 2 \
+    --grad_estimation_num_radii 1 \
+    --unit_vectors_keep_top_k 0 \
+    --use_top_gradients_ratio 1 \
+    --gradients_dropout 0.0 \
+    --grad_estimation_sample_by_frame --grad_estimation_sample_num_frames 1 \
+    %--debug

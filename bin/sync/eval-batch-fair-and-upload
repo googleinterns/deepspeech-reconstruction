@@ -1,0 +1,9 @@
+DIR=$(basename $1)
+echo "Directory: $DIR"
+gsutil -m rsync -r -u gs://research-brain-speech-reconstruction-xgcp/output/$DIR outputs/$DIR
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/$DIR --tag=fair1 --csv_path samples/librispeech/batch-$2/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/$DIR --tag=fair2 --csv_path samples/librispeech/batch-$2/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/$DIR --tag=fair3 --csv_path samples/librispeech/batch-$2/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/$DIR --tag=fair4 --csv_path samples/librispeech/batch-$2/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/$DIR --tag=fair5 --csv_path samples/librispeech/batch-$2/1s-2s
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/$DIR gs://research-brain-speech-reconstruction-xgcp/output/$DIR

@@ -1,0 +1,10 @@
+python train.py \
+    --train_files $HOME/datasets/common_voice/clips/train.csv \
+    --dev_files $HOME/datasets/common_voice/clips/dev.csv \
+    --test_files $HOME/datasets/common_voice/clips/test.csv \
+    --alphabet_config_path data/alphabet.txt \
+    %--scorer $HOME/repos/DeepSpeech/data/lm/kenlm.scorer \
+    --scorer '' \
+    %--checkpoint_dir $HOME/pretrained_models/deepspeech-0.7.1-checkpoint --load_train last --load_cudnn \
+    --load_train init \
+    --save_checkpoint_dir checkpoints \

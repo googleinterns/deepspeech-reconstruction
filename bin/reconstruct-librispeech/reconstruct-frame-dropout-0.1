@@ -1,0 +1,13 @@
+export PREFIX=reconstruct-librispeech-batch-dropout-0.1
+rm -rf logs/$PREFIX-$1-$2-$3
+
+python export_gradients.py \
+    --train_files samples/librispeech/batch-$1/$2/$3.csv \
+    --alphabet_config_path data/alphabet.txt \
+    --learning_rate 1. \
+    --scorer '' \
+    --epochs 1 \
+    --output_path outputs/librispeech/$PREFIX/batch-$1/$2/$3 \
+    --load_checkpoint_dir checkpoints --load_train last \
+    --train_batch_size $1 \
+    --dropout_rate 0.1

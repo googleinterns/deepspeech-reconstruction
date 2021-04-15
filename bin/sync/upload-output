@@ -1,0 +1,1 @@
+gsutil -m rsync -r -u -x ".*_grads.pkl" outputs/$1 gs://research-brain-speech-reconstruction-xgcp/output/$1

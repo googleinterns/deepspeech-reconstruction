@@ -1,0 +1,5 @@
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/reconstruct-librispeech-batch-$1-frame --tag=fair1 --csv_path samples/librispeech/batch-$1/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/reconstruct-librispeech-batch-$1-frame --tag=fair2 --csv_path samples/librispeech/batch-$1/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/reconstruct-librispeech-batch-$1-frame --tag=fair3 --csv_path samples/librispeech/batch-$1/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/reconstruct-librispeech-batch-$1-frame --tag=fair4 --csv_path samples/librispeech/batch-$1/1s-2s
+python src/deep_speaker/test_reconstruction.py --mode multi --all_speakers --path outputs/reconstruct-librispeech-batch-$1-frame --tag=fair5 --csv_path samples/librispeech/batch-$1/1s-2s

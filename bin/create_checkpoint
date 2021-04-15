@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+python -m src.deepspeech_training.train \
+  --train_files , \
+  --scorer '' \
+  --train_batch_size 64 \
+  --dev_batch_size 64 \
+  --test_batch_size 64 \
+  --optimizer adam \
+  --learning_rate 0.0001 \
+  --epochs 1 \
+  --dropout_rate 0.40 \
+  --plateau_epochs 2 \
+  --checkpoint_dir checkpoints

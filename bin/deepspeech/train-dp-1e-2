@@ -1,0 +1,20 @@
+./DeepSpeech.py \
+  --train_files $HOME/data/LibriSpeech/librivox-train-clean-360.csv,$HOME/data/LibriSpeech/librivox-train-clean-100.csv,$HOME/data/LibriSpeech/librivox-train-other-500.csv \
+  %--train_files $HOME/data/LibriSpeech/librivox-train-clean-360.csv,$HOME/data/LibriSpeech/librivox-train-clean-100.csv \
+  --dev_files $HOME/data/LibriSpeech/librivox-dev-clean.csv,$HOME/data/LibriSpeech/librivox-dev-other.csv \
+  %--test_files $HOME/data/LibriSpeech/librivox-test-clean.csv,$HOME/data/LibriSpeech/librivox-test-other.csv \
+  --test_files $HOME/data/LibriSpeech/librivox-test-clean.csv \
+  --scorer '' \
+  --train_batch_size 16 \
+  --dev_batch_size 64 \
+  --test_batch_size 64 \
+  --optimizer dp-sgd \
+  --learning_rate 0.005 \
+  --epochs 20 \
+  --dropout_rate 0.0 \
+  --gradient_clipping norm_l2 \
+  --gradient_clip_value 100 \
+  --gradient_noise 1 \
+  --plateau_epochs 1 \
+  --checkpoint_dir /home/trungvd/.local/share/deepspeech/checkpoints-dp-noise-1e-2-bs-16 \
+  --summary_dir /home/trungvd/.local/share/deepspeech/logs/checkpoints-dp-noise-1e-2-bs-16

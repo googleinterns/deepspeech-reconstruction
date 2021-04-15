@@ -1,0 +1,2 @@
+CUDA_VISIBLE_DEVICES=-1 python src/scripts/mfcc2audio.py outputs/reconstruct-librispeech-sample-frame-cosine/$1/checkpoint-last.pkl outputs/reconstruct-librispeech-sample-frame-cosine/$1/reconstructed.wav
+
